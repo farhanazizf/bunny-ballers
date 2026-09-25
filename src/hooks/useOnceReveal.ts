@@ -16,22 +16,25 @@ export function useOnceReveal(
       if (reduced || !ref.current) return
       const items = ref.current.querySelectorAll(selector)
       if (!items.length) return
-      gsap.fromTo(
-        items,
-        { opacity: 0.1, y: 22 },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.07,
-          duration: 0.75,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: ref.current,
-            start: 'top 82%',
-            once: true,
+      ScrollTrigger.config({ ignoreMobileResize: true })
+      const mobile = window.matchMedia('(max-width: 767px)').matches
+      items.forEach((item) => {
+        gsap.fromTo(
+          item,
+          { opacity: 0.06, y: mobile ? 40 : 22 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: mobile ? 0.65 : 0.75,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: item,
+              start: mobile ? 'top 94%' : 'top 86%',
+              once: true,
+            },
           },
-        },
-      )
+        )
+      })
     },
     { dependencies: [reduced, ...deps] },
   )

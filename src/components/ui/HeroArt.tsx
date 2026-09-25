@@ -2,7 +2,7 @@ import { asset } from '../../lib/asset'
 
 export function HeroArt() {
   return (
-    <div className="absolute inset-0 bg-bunny-ink" aria-hidden>
+    <div className="hero-art-layer absolute inset-0 bg-bunny-ink" aria-hidden>
       <img
         src={asset('gallery/3.png')}
         alt=""

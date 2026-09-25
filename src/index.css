@@ -59,8 +59,32 @@ body::before {
   to { opacity: 1; transform: none; }
 }
 .animate-fade-up { animation: fade-up 0.45s ease-out; }
+@keyframes menu-item {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to { opacity: 1; transform: none; }
+}
+.animate-menu-item {
+  animation: menu-item 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes menu-scrim {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-menu-scrim {
+  animation: menu-scrim 0.28s ease-out both;
+}
+@media (max-width: 767px) {
+  .animate-marquee { animation-duration: 16s; }
+  .snap-x {
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .snap-x::-webkit-scrollbar { display: none; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .animate-marquee,
-  .animate-fade-up { animation: none; }
+  .animate-fade-up,
+  .animate-menu-item,
+  .animate-menu-scrim { animation: none; }
 }

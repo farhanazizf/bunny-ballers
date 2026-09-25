@@ -71,6 +71,16 @@ function Hero() {
       tl.fromTo('.hero-cta', { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.45 }, '-=0.25')
       tl.fromTo('.hero-mascot', { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.85 }, '-=0.45')
       tl.to('.hero-mascot', { y: -10, duration: 2.6, yoyo: true, repeat: -1, ease: 'sine.inOut' })
+      gsap.to('.hero-art-layer', {
+        yPercent: 16,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: root.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      })
     },
     { scope: root, dependencies: [reduced, title] },
   )
@@ -144,7 +154,7 @@ function About() {
             ))}
           </div>
         </div>
-        <div data-reveal className="col-span-12 overflow-hidden rounded-[1.75rem] lg:col-span-4 lg:row-span-2 lg:-mt-8">
+        <div data-reveal className="col-span-12 -mt-2 overflow-hidden rounded-[1.75rem] lg:col-span-4 lg:row-span-2 lg:-mt-8">
           <div className="group h-full min-h-[320px] overflow-hidden">
             <img
               src={asset('gallery/5.png')}
@@ -247,26 +257,49 @@ function Programs() {
             )
           })}
         </div>
-        <div className="mt-10 space-y-4 md:hidden">
-          {programs.map((p) => (
-            <div key={p.id} data-reveal className="relative overflow-hidden rounded-xl bg-bunny-coal">
-              <div className="relative h-28">
-                <ProgramArt id={p.id} />
+        <div className="mt-10 space-y-3 md:hidden">
+          {programs.map((p) => {
+            const open = active === p.id
+            return (
+              <div
+                key={p.id}
+                data-reveal
+                className="relative overflow-hidden rounded-xl bg-bunny-coal transition-transform duration-200 active:scale-[0.985]"
+              >
+                <button type="button" className="w-full text-left" onClick={() => setActive(p.id)}>
+                  <div className={cn('relative overflow-hidden transition-[height] duration-500 ease-out', open ? 'h-40' : 'h-24')}>
+                    <ProgramArt id={p.id} />
+                  </div>
+                  <div className="flex items-end justify-between gap-4 px-5 py-4">
+                    <div>
+                      <p className="text-sm text-bunny-orange">{t(`programs.${p.id}.ages`)}</p>
+                      <h3 className="font-display text-2xl font-medium">{t(`programs.${p.id}.name`)}</h3>
+                    </div>
+                    <span
+                      className={cn(
+                        'mb-1 block h-2.5 w-2.5 rotate-45 border-b-2 border-r-2 border-bunny-orange transition-transform duration-300',
+                        open ? '-translate-y-0.5 rotate-[225deg]' : '',
+                      )}
+                    />
+                  </div>
+                </button>
+                <div className={cn('grid transition-[grid-template-rows] duration-500 ease-out', open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]')}>
+                  <div className="overflow-hidden">
+                    <div className="px-5 pb-6">
+                      <ul className="space-y-2 text-bunny-mute">
+                        {[0, 1, 2, 3].map((i) => (
+                          <li key={i}>{t(`programs.${p.id}.points.${i}`)}</li>
+                        ))}
+                      </ul>
+                      <Button className="mt-5" onClick={() => choose(p.id)}>
+                        {t('programs.cta')}
+                      </Button>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="p-6">
-                <p className="text-sm text-bunny-orange">{t(`programs.${p.id}.ages`)}</p>
-                <h3 className="font-display text-2xl font-medium">{t(`programs.${p.id}.name`)}</h3>
-                <ul className="mt-4 space-y-2 text-bunny-mute">
-                  {[0, 1, 2, 3].map((i) => (
-                    <li key={i}>{t(`programs.${p.id}.points.${i}`)}</li>
-                  ))}
-                </ul>
-                <Button className="mt-6" onClick={() => choose(p.id)}>
-                  {t('programs.cta')}
-                </Button>
-              </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>
@@ -451,13 +484,17 @@ function Gallery() {
             {t('gallery.cta')}
           </a>
         </div>
-        <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-6 md:gap-4">
+        <div className="-mx-6 mt-12 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-3 md:mx-0 md:grid md:grid-cols-6 md:gap-4 md:overflow-visible md:px-0 md:pb-0">
           {gallery.map((photo, i) => (
             <button
               key={photo.src}
               type="button"
               data-reveal
-              className={cn('group overflow-hidden', galleryFrames[i] ?? 'aspect-[4/5] rounded-lg')}
+              className={cn(
+                'group shrink-0 snap-center overflow-hidden transition-transform duration-200 active:scale-[0.98]',
+                'w-[78vw] aspect-[4/5] rounded-xl md:w-auto md:snap-none',
+                galleryFrames[i] ?? 'rounded-lg',
+              )}
               onClick={() => setIndex(i)}
             >
               <img

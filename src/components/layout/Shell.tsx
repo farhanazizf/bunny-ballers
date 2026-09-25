@@ -88,6 +88,7 @@ export function Navbar() {
   }
 
   return (
+    <>
     <header className="fixed inset-x-0 top-0 z-[var(--z-nav)]">
       <nav
         className={cn(
@@ -132,36 +133,51 @@ export function Navbar() {
           </Button>
           <button
             type="button"
-            className="min-h-11 min-w-11 lg:hidden"
+            className="relative min-h-11 min-w-11 lg:hidden"
             aria-label={t('nav.menu')}
-            onClick={() => setOpen(true)}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
           >
-            <span className="block h-0.5 w-6 bg-bunny-chalk" />
-            <span className="mt-1.5 block h-0.5 w-6 bg-bunny-chalk" />
+            <span
+              className={cn(
+                'absolute left-2.5 top-[18px] block h-0.5 w-6 bg-bunny-chalk transition-transform duration-300',
+                open && 'translate-y-[5px] rotate-45',
+              )}
+            />
+            <span
+              className={cn(
+                'absolute left-2.5 top-[26px] block h-0.5 w-6 bg-bunny-chalk transition-transform duration-300',
+                open && '-translate-y-[3px] -rotate-45',
+              )}
+            />
           </button>
         </div>
       </nav>
+    </header>
       {open && (
-        <div className="fixed inset-0 z-50 flex flex-col bg-bunny-ink px-6 py-10 lg:hidden">
+        <div className="animate-menu-scrim fixed inset-0 z-[var(--z-overlay)] flex flex-col bg-bunny-ink px-6 py-10 lg:hidden">
           <button type="button" className="min-h-11 self-end text-bunny-chalk" onClick={() => setOpen(false)}>
             {t('nav.close')}
           </button>
           <div className="mt-12 flex flex-col gap-6">
-            {links.map((id) => (
+            {links.map((id, i) => (
               <button
                 key={id}
                 type="button"
                 onClick={() => go(id)}
-                className="text-left font-display text-4xl font-medium text-bunny-chalk"
+                style={{ animationDelay: `${80 + i * 70}ms` }}
+                className="animate-menu-item text-left font-display text-4xl font-medium text-bunny-chalk"
               >
                 {t(`nav.${id}`)}
               </button>
             ))}
-            <Button onClick={() => go('register')}>{t('nav.register')}</Button>
+            <div className="animate-menu-item" style={{ animationDelay: `${80 + links.length * 70}ms` }}>
+              <Button onClick={() => go('register')}>{t('nav.register')}</Button>
+            </div>
           </div>
         </div>
       )}
-    </header>
+    </>
   )
 }
 
