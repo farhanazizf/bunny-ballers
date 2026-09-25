@@ -1,0 +1,194 @@
+{
+  "nav": {
+    "about": "Club",
+    "programs": "Programs",
+    "schedule": "Schedule",
+    "gallery": "Gallery",
+    "faq": "FAQ",
+    "register": "Book Trial",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "hero": {
+    "title": "Grow Strong. Play Fearless.",
+    "subtitle": "Basketball training for ages 6–18, boys & girls, at MS Sports Arena BSD. Real fundamentals, a fun atmosphere, a team that feels like family.",
+    "ctaPrimary": "Book a Free Trial",
+    "ctaSecondary": "See Schedule"
+  },
+  "about": {
+    "title": "More than basketball",
+    "body1": "Bunny Ballers is a youth basketball club in BSD. We believe basketball isn't only about scoring — it's about discipline, teamwork, and the courage to make decisions under pressure.",
+    "body2": "Every session is structured: warm-up and footwork, fundamental drills (dribbling, passing, shooting), then game situations and scrimmages. Younger kids learn through play, while older players are sharpened for competition and sparring games.",
+    "values": {
+      "fundamentals": {
+        "title": "Fundamentals First",
+        "body": "Correct basics from day one, so there are no bad habits to undo later."
+      },
+      "family": {
+        "title": "A Team That Feels Like Family",
+        "body": "A supportive room where new players find friends, not rivals."
+      },
+      "ready": {
+        "title": "Game Ready",
+        "body": "Regular sparring and competition to test what we train."
+      }
+    }
+  },
+  "marquee": {
+    "ages": "Ages 6–18",
+    "gender": "PA / PI",
+    "city": "BSD · Serpong · Tangsel",
+    "trial": "Free 1-session trial",
+    "venue": "MS Sports Arena"
+  },
+  "programs": {
+    "title": "Pick the lane for their age",
+    "subtitle": "One club, three training tempos. Boys and girls train together.",
+    "gender": "PA / PI",
+    "cta": "Register",
+    "mini": {
+      "name": "Mini Bunnies",
+      "ages": "Ages 6–9",
+      "points": [
+        "Motor coordination",
+        "Basic ball handling",
+        "Fun games",
+        "Intro to the rules"
+      ]
+    },
+    "junior": {
+      "name": "Junior Ballers",
+      "ages": "Ages 10–14",
+      "points": [
+        "Full fundamentals",
+        "Shooting form",
+        "Defensive stance",
+        "Basic team concepts"
+      ]
+    },
+    "senior": {
+      "name": "Senior Ballers",
+      "ages": "Ages 15–18",
+      "points": [
+        "Team tactics",
+        "Conditioning",
+        "Set plays",
+        "Sparring and competition prep"
+      ]
+    }
+  },
+  "schedule": {
+    "title": "Two sessions. One court.",
+    "note": "Schedule may change during public holidays or tournaments. Latest updates are always posted on Instagram.",
+    "locationTitle": "Location",
+    "directions": "Open in Google Maps",
+    "friday": "Friday",
+    "saturday": "Saturday"
+  },
+  "desire": {
+    "text": "Every session is structured: warm-up and footwork, fundamental drills, then game situations and scrimmages. Younger kids learn through play. Older players are sharpened for competition."
+  },
+  "gallery": {
+    "title": "Inside the gym",
+    "subtitle": "Sweat, laughter, and clutch shots. This is a normal week at Bunny Ballers.",
+    "cta": "See more on Instagram"
+  },
+  "faq": {
+    "title": "What parents ask first",
+    "items": {
+      "beginner": {
+        "q": "My child has never played basketball. Can they join?",
+        "a": "Absolutely. Most kids start from zero. Coaches group by age and ability."
+      },
+      "ages": {
+        "q": "Which ages do you accept?",
+        "a": "Ages 6 to 18, boys and girls."
+      },
+      "gear": {
+        "q": "What should they bring?",
+        "a": "Sports shoes, training clothes, a water bottle, and a small towel. Balls are provided."
+      },
+      "trial": {
+        "q": "Is there a trial before registering?",
+        "a": "Yes. The first trial is free, one session. After that our team will follow up on WhatsApp."
+      },
+      "parents": {
+        "q": "Can parents wait at the venue?",
+        "a": "Yes. Parents may wait at the tribune or court side during the session."
+      },
+      "makeup": {
+        "q": "What if my child cannot attend?",
+        "a": "They can make up the other session in the same week: Friday 18:00 or Saturday 10:00."
+      },
+      "compete": {
+        "q": "Does Bunny Ballers compete?",
+        "a": "Yes. The team regularly plays sparring and inter-club games — you can see it on Instagram."
+      }
+    }
+  },
+  "register": {
+    "title": "Come try your first session",
+    "subtitle": "Fill in the form and our team will reach you on WhatsApp to arrange a trial.",
+    "submit": "Send via WhatsApp",
+    "sending": "Opening WhatsApp",
+    "ticketLabel": "Trial slip",
+    "ticketNote": "Use the form on the left, or message Felix directly if that is faster.",
+    "consent": "I agree this information may be used for Bunny Ballers registration purposes.",
+    "messageIntro": "Hi Bunny Ballers! I would like to register my child for a trial.",
+    "quickTitle": "Prefer a direct chat",
+    "whatsappCta": "WhatsApp Felix",
+    "instagramCta": "Instagram",
+    "fields": {
+      "childName": "Child's name",
+      "age": "Age",
+      "gender": "Gender",
+      "parentName": "Parent / guardian",
+      "whatsapp": "WhatsApp number",
+      "session": "Preferred session",
+      "experience": "Basketball experience",
+      "notes": "Notes",
+      "program": "Program"
+    },
+    "gender": {
+      "PA": "Boy",
+      "PI": "Girl"
+    },
+    "experience": {
+      "none": "Never played",
+      "lt1": "Less than 1 year",
+      "1to3": "1–3 years",
+      "gt3": "More than 3 years"
+    },
+    "errors": {
+      "required": "Required",
+      "childName": "At least 2 characters",
+      "age": "Age must be 6 to 18",
+      "whatsapp": "Invalid WhatsApp number",
+      "consent": "Consent is required"
+    }
+  },
+  "legal": {
+    "privacy": "Privacy policy",
+    "terms": "Terms of use",
+    "back": "Back to home",
+    "privacyTitle": "Privacy policy",
+    "privacyBody": "The trial form is only used to arrange a session on WhatsApp. This site does not store form data on a server. The chat continues on Felix's phone as the club contact.",
+    "termsTitle": "Terms of use",
+    "termsBody": "The first trial is free, one session. The schedule may change on holidays or tournament days. Parents remain responsible for their child outside training time."
+  },
+  "footer": {
+    "tagline": "Grow strong. Play fearless.",
+    "rights": "All rights reserved.",
+    "dataNote": "Form data is only used to arrange a trial."
+  },
+  "common": {
+    "waLabel": "Chat WhatsApp Bunny Ballers",
+    "skip": "Skip to content",
+    "home": "Home"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "Head back to the main court.",
+    "cta": "Go home"
+  }
+}

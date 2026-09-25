@@ -1,0 +1,194 @@
+{
+  "nav": {
+    "about": "Klub",
+    "programs": "Program",
+    "schedule": "Jadwal",
+    "gallery": "Galeri",
+    "faq": "FAQ",
+    "register": "Daftar Trial",
+    "menu": "Menu",
+    "close": "Tutup"
+  },
+  "hero": {
+    "title": "Tumbuh Kuat. Main Berani.",
+    "subtitle": "Latihan basket untuk usia 6–18 tahun, putra & putri, di MS Sports Arena BSD. Fundamental yang benar, atmosfer yang seru, tim yang jadi keluarga.",
+    "ctaPrimary": "Daftar Trial Gratis",
+    "ctaSecondary": "Lihat Jadwal"
+  },
+  "about": {
+    "title": "Lebih dari sekadar basket",
+    "body1": "Bunny Ballers adalah klub basket untuk anak dan remaja di BSD. Kami percaya basket bukan cuma soal mencetak angka — tapi soal disiplin, kerja sama, dan keberanian mengambil keputusan di bawah tekanan.",
+    "body2": "Setiap sesi dirancang bertahap: pemanasan dan footwork, drill fundamental (dribble, passing, shooting), lalu game situation dan scrimmage. Anak-anak belajar sambil bermain, pemain yang lebih senior diasah untuk kompetisi dan sparring.",
+    "values": {
+      "fundamentals": {
+        "title": "Fundamental Dulu",
+        "body": "Teknik dasar yang benar sejak awal, supaya tidak perlu memperbaiki kebiasaan buruk nanti."
+      },
+      "family": {
+        "title": "Tim Jadi Keluarga",
+        "body": "Atmosfer suportif; pemain baru langsung punya teman, bukan saingan."
+      },
+      "ready": {
+        "title": "Siap Bertanding",
+        "body": "Sparring dan kompetisi rutin untuk menguji apa yang dilatih."
+      }
+    }
+  },
+  "marquee": {
+    "ages": "KU 6–18",
+    "gender": "PA / PI",
+    "city": "BSD · Serpong · Tangsel",
+    "trial": "Trial gratis 1 sesi",
+    "venue": "MS Sports Arena"
+  },
+  "programs": {
+    "title": "Pilih jalur sesuai usia",
+    "subtitle": "Satu klub, tiga tempo latihan. Putra dan putri berlatih bersama.",
+    "gender": "PA / PI",
+    "cta": "Daftar",
+    "mini": {
+      "name": "Mini Bunnies",
+      "ages": "6–9 tahun",
+      "points": [
+        "Koordinasi motorik",
+        "Ball handling dasar",
+        "Fun games",
+        "Pengenalan aturan"
+      ]
+    },
+    "junior": {
+      "name": "Junior Ballers",
+      "ages": "10–14 tahun",
+      "points": [
+        "Fundamental menyeluruh",
+        "Shooting form",
+        "Defense stance",
+        "Konsep tim dasar"
+      ]
+    },
+    "senior": {
+      "name": "Senior Ballers",
+      "ages": "15–18 tahun",
+      "points": [
+        "Taktik tim",
+        "Kondisi fisik",
+        "Set play",
+        "Persiapan sparring & kompetisi"
+      ]
+    }
+  },
+  "schedule": {
+    "title": "Dua malam, satu court",
+    "note": "Jadwal dapat berubah saat libur nasional atau agenda turnamen. Update terbaru selalu diumumkan di Instagram.",
+    "locationTitle": "Lokasi",
+    "directions": "Buka di Google Maps",
+    "friday": "Jumat",
+    "saturday": "Sabtu"
+  },
+  "desire": {
+    "text": "Setiap sesi dirancang bertahap: pemanasan dan footwork, drill fundamental, lalu game situation dan scrimmage. Anak-anak belajar sambil bermain. Pemain yang lebih senior diasah untuk kompetisi."
+  },
+  "gallery": {
+    "title": "Di dalam gym",
+    "subtitle": "Keringat, tawa, dan clutch shot. Inilah keseharian Bunny Ballers.",
+    "cta": "Lihat lebih banyak di Instagram"
+  },
+  "faq": {
+    "title": "Yang sering ditanya orang tua",
+    "items": {
+      "beginner": {
+        "q": "Anak saya belum pernah main basket sama sekali, boleh ikut?",
+        "a": "Sangat boleh. Sebagian besar anak yang bergabung mulai dari nol. Pelatih membagi kelompok sesuai usia dan kemampuan."
+      },
+      "ages": {
+        "q": "Usia berapa saja yang diterima?",
+        "a": "Usia 6 sampai 18 tahun, putra maupun putri."
+      },
+      "gear": {
+        "q": "Apa yang perlu dibawa saat latihan?",
+        "a": "Sepatu olahraga, baju latihan, botol minum, dan handuk kecil. Bola disediakan."
+      },
+      "trial": {
+        "q": "Apakah ada trial sebelum mendaftar?",
+        "a": "Ada. Trial pertama gratis, satu sesi. Setelah itu tim kami akan menghubungi via WhatsApp untuk kelanjutan."
+      },
+      "parents": {
+        "q": "Apakah orang tua boleh menunggu di lokasi?",
+        "a": "Boleh. Orang tua dapat menunggu di area tribun atau sisi court selama sesi berlangsung."
+      },
+      "makeup": {
+        "q": "Bagaimana kalau anak berhalangan hadir?",
+        "a": "Bisa ganti ke sesi lain di minggu yang sama: Jumat 18:00 atau Sabtu 10:00."
+      },
+      "compete": {
+        "q": "Apakah Bunny Ballers ikut kompetisi?",
+        "a": "Ya. Tim rutin mengikuti sparring dan pertandingan antar klub — dokumentasinya bisa dilihat di Instagram."
+      }
+    }
+  },
+  "register": {
+    "title": "Ayo coba latihan pertama",
+    "subtitle": "Isi formulir, tim kami akan menghubungi via WhatsApp untuk mengatur jadwal trial.",
+    "submit": "Kirim via WhatsApp",
+    "sending": "Membuka WhatsApp",
+    "ticketLabel": "Kartu trial",
+    "ticketNote": "Isi formulir di kiri, atau chat langsung ke Felix kalau lebih cepat.",
+    "consent": "Saya menyetujui data ini digunakan untuk keperluan pendaftaran Bunny Ballers.",
+    "messageIntro": "Halo Bunny Ballers! Saya ingin mendaftarkan anak saya untuk trial.",
+    "quickTitle": "Lebih cepat chat langsung",
+    "whatsappCta": "WhatsApp Felix",
+    "instagramCta": "Instagram",
+    "fields": {
+      "childName": "Nama anak",
+      "age": "Usia",
+      "gender": "Jenis kelamin",
+      "parentName": "Nama orang tua/wali",
+      "whatsapp": "Nomor WhatsApp",
+      "session": "Pilih jadwal",
+      "experience": "Pengalaman basket",
+      "notes": "Catatan",
+      "program": "Program"
+    },
+    "gender": {
+      "PA": "Putra",
+      "PI": "Putri"
+    },
+    "experience": {
+      "none": "Belum pernah",
+      "lt1": "Kurang dari 1 tahun",
+      "1to3": "1–3 tahun",
+      "gt3": "Lebih dari 3 tahun"
+    },
+    "errors": {
+      "required": "Wajib diisi",
+      "childName": "Minimal 2 karakter",
+      "age": "Usia harus 6 sampai 18",
+      "whatsapp": "Nomor WhatsApp tidak valid",
+      "consent": "Persetujuan wajib dicentang"
+    }
+  },
+  "legal": {
+    "privacy": "Kebijakan privasi",
+    "terms": "Syarat penggunaan",
+    "back": "Kembali ke beranda",
+    "privacyTitle": "Kebijakan privasi",
+    "privacyBody": "Formulir trial hanya dipakai untuk mengatur jadwal via WhatsApp. Kami tidak menyimpan data di server situs ini. Chat berlanjut di perangkat Felix sebagai PIC klub.",
+    "termsTitle": "Syarat penggunaan",
+    "termsBody": "Trial pertama gratis, satu sesi. Jadwal bisa berubah saat libur atau turnamen. Orang tua bertanggung jawab atas keselamatan anak di luar sesi latihan."
+  },
+  "footer": {
+    "tagline": "Tumbuh kuat. Main berani.",
+    "rights": "All rights reserved.",
+    "dataNote": "Data formulir hanya dipakai untuk mengatur trial."
+  },
+  "common": {
+    "waLabel": "Chat WhatsApp Bunny Ballers",
+    "skip": "Lewati ke konten",
+    "home": "Beranda"
+  },
+  "notFound": {
+    "title": "Halaman tidak ada",
+    "body": "Kembali ke court utama.",
+    "cta": "Ke beranda"
+  }
+}
