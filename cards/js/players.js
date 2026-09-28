@@ -1,4 +1,4 @@
-import { CLUB, COLUMNS, PHOTO_DIR, TESTS } from './config.js';
+import { CLUB, COLUMNS, PHOTO_DIR, PHOTO_EXTS, TESTS } from './config.js';
 
 export function cell(row, aliases) {
   for (const key of aliases) {
@@ -7,12 +7,26 @@ export function cell(row, aliases) {
   return '';
 }
 
+function num(value) {
+  if (value === '') return null;
+  const n = Number(value);
+  return Number.isFinite(n) ? n : null;
+}
+
+function lastNumber(player, key, field) {
+  for (let i = player.periods.length - 1; i >= 0; i--) {
+    const n = player.periods[i].results[key]?.[field];
+    if (n != null) return n;
+  }
+  return null;
+}
+
 function readResults(row) {
   const results = {};
   for (const t of TESTS) {
-    const pre = Number(cell(row, t.pre));
-    const post = Number(cell(row, t.post));
-    if (Number.isFinite(pre) && Number.isFinite(post)) results[t.key] = { pre, post };
+    const pre = num(cell(row, t.pre));
+    const post = num(cell(row, t.post));
+    if (pre != null || post != null) results[t.key] = { pre, post };
   }
   return results;
 }
@@ -28,7 +42,10 @@ export function toPeriodRow(row) {
     position: cell(row, COLUMNS.position).toUpperCase(),
     squad: cell(row, COLUMNS.squad).toUpperCase(),
     id,
-    photo: cell(row, COLUMNS.photo) || (id ? `${PHOTO_DIR}/${id}.png` : ''),
+    photo: cell(row, COLUMNS.photo),
+    photoSources: cell(row, COLUMNS.photo)
+      ? [cell(row, COLUMNS.photo)]
+      : (id ? PHOTO_EXTS.map((ext) => `${PHOTO_DIR}/${id}${ext}`) : []),
     attendance: cell(row, COLUMNS.attendance),
     tests: cell(row, COLUMNS.tests),
     injuries: cell(row, COLUMNS.injuries) || '0',
@@ -57,12 +74,14 @@ export function groupPlayers(rows) {
         squad: snap.squad,
         id: snap.id,
         photo: snap.photo,
+        photoSources: snap.photoSources,
         periods: [],
       });
     }
     const player = map.get(snap.id);
     player.periods.push(snap);
     if (snap.photo) player.photo = snap.photo;
+    if (snap.photoSources?.length) player.photoSources = snap.photoSources;
     if (snap.age) player.age = snap.age;
     if (snap.position) player.position = snap.position;
     if (snap.squad) player.squad = snap.squad;
@@ -86,9 +105,9 @@ export function snapshotFor(player, view) {
   if (view === 'career') {
     const results = {};
     for (const t of TESTS) {
-      const pre = player.first.results[t.key]?.pre;
-      const post = player.latest.results[t.key]?.post;
-      if (Number.isFinite(pre) && Number.isFinite(post)) results[t.key] = { pre, post };
+      const pre = player.first.results[t.key]?.pre ?? lastNumber(player, t.key, 'pre');
+      const post = lastNumber(player, t.key, 'post');
+      if (pre != null || post != null) results[t.key] = { pre, post };
     }
     return {
       ...player.latest,
@@ -98,6 +117,7 @@ export function snapshotFor(player, view) {
       squad: player.squad,
       id: player.id,
       photo: player.photo,
+      photoSources: player.photoSources ?? player.latest.photoSources,
       results,
       view: 'career',
       periodFrom: player.first.period,
@@ -117,6 +137,7 @@ export function snapshotFor(player, view) {
     squad: player.squad,
     id: player.id,
     photo: player.photo,
+    photoSources: player.photoSources ?? snap.photoSources,
     view: 'period',
     periodFrom: snap.period,
     periodTo: snap.period,

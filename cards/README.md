@@ -32,23 +32,27 @@ Baris yang diawali `#` hanya petunjuk, tidak jadi kartu.
 | Periode | angka urut | 1 lalu 2 |
 | Label | nama di kartu | T1/2026 |
 | Hadir / Tes / Cedera | per periode itu | 22/24 · 9/9 · 0 |
-| `*_pre` / `*_post` | tes awal & akhir periode | FT 4 → 7 |
+| `*_pre` / `*_post` | tes awal & akhir periode | FT 4 → 7. Post boleh kosong. |
 
-Satu anak boleh banyak baris (periode 1, 2, 3, …) selama **ID sama**. Toolbar **Jejak** membandingkan pre periode pertama ke post terakhir. Tombol periode menampilkan pre→post periode itu saja.
+Satu anak boleh banyak baris (periode 1, 2, 3, …) selama **ID sama**. Toolbar **Jejak** membandingkan pre periode pertama ke post terakhir yang sudah ada. Tombol periode menampilkan pre→post periode itu; kalau post masih kosong, angka besar = **skor awal** (rata-rata pre÷skala tes; waktu dibanding target di `config.js`).
 
 Waktu pakai titik (`5.6`), bukan koma (`5,6`).
 
 ## Alur kerja per periode
 
 1. Tambah baris baru (jangan timpa periode lama).
-2. Isi `Periode` = 2, 3, … plus pre/post.
-3. Taruh foto di `assets/photos/<ID>.png` bila belum ada.
+2. Isi `Periode` = 2, 3, … plus pre. Post diisi belakangan, kolomnya dibiarkan kosong dulu.
+3. Foto: taruh JPG/WebP di `assets/photos/raw/<ID>.jpg`, lalu `npm run cards:photos`.
 4. `npm run cards`, refresh, Cetak / PDF.
 
 ## Foto
 
-Slot 214×252 (gaya A) dan 158×186 (gaya B). Kolom `photo` kosong jatuh ke
-`assets/photos/<id>.png`. Tanpa file, kartu pakai placeholder.
+Kartu mencari `assets/photos/<ID>.png`, lalu `.webp` / `.jpg` / `.jpeg`.
+Kalau sumbernya belum PNG (ada background), taruh di `assets/photos/raw/`
+dan jalankan `npm run cards:photos` — skrip potong background, hasil
+`<ID>.png`. Run pertama mengunduh model. Timpa file lama: `npm run cards:photos -- --force`.
+
+Slot 214×252 (gaya A) dan 158×186 (gaya B). Tanpa file, kartu pakai placeholder.
 
 ## Config
 

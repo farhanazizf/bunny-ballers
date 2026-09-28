@@ -1,6 +1,6 @@
 # Jangan hapus baris header (baris yang diawali Nama). Baris # diabaikan.
 # Satu baris = satu anak di SATU periode. Anak yang sama (ID sama) boleh punya banyak baris.
-# Tiap periode wajib ada pre-test dan post-test.
+# Pre wajib. Post boleh kosong sampai tes akhir — kartu tetap tampil (baseline).
 #
 # Periode       angka urut 1, 2, 3, …
 # Label         nama periode di kartu  contoh T1/2026
@@ -19,3 +19,5 @@ Raka Nugroho,16,Center,U-16,0121,,1,T1/2026,20/24,9/9,1,3,6,2,6,2,4,6,8,6.1,5.5,
 Arya Wicaksana,15,Guard,U-16,0114,,2,T2/2026,23/24,9/9,0,7,8,8,9,5,7,9,10,5.2,5.0,11.8,11.2
 Dimas Pratama,14,Forward,U-16,0118,,2,T2/2026,24/24,9/9,0,8,9,7,8,7,8,9,9,5.1,4.9,11.5,11.1
 Raka Nugroho,16,Center,U-16,0121,,2,T2/2026,21/24,9/9,0,6,7,6,7,4,6,8,9,5.5,5.3,12.4,11.9
+# --- contoh periode 3: baru pre, post dikosongkan ---
+Arya Wicaksana,15,Guard,U-16,0114,,3,T3/2026,8/24,6/9,0,8,,9,,7,,10,,5.0,,11.2,

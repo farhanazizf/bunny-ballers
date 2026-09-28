@@ -9,7 +9,8 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "cards": "npx --yes serve cards -p 4174"
+    "cards": "npx --yes serve cards -p 4174",
+    "cards:photos": "node cards/scripts/prepare-photos.mjs"
   },
   "dependencies": {
     "@fontsource/plus-jakarta-sans": "^5.3.0",
@@ -29,6 +30,7 @@
     "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@imgly/background-removal-node": "^1.4.5",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
     "@types/node": "^24.13.3",

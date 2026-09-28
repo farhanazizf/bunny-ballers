@@ -7,6 +7,7 @@ export const CLUB = {
 export const DEFAULT_STYLE = 'A';          // 'A' = Crystal · 'B' = Bunny Ballers
 export const DEFAULT_VIEW  = 'career';     // 'career' | nomor periode
 export const PHOTO_DIR     = 'assets/photos';
+export const PHOTO_EXTS    = ['.png', '.webp', '.jpg', '.jpeg'];
 export const DATA_URL      = 'data/players.csv';
 
 /** Nama kolom CSV (Indonesia) + alias spec Inggris. */
@@ -43,10 +44,10 @@ export const TESTS = [
   { key: 'pass',   short: 'PASS',   long: 'CHEST PASS 10x',  kind: 'count', max: 10,
     pre: ['ChestPass_pre', 'ChestPass_minggu1', 'pass_w1'],
     post: ['ChestPass_post', 'ChestPass_minggu12', 'pass_w12'] },
-  { key: 'sprint', short: 'SPRINT', long: 'SPRINT 28M',      kind: 'time',
+  { key: 'sprint', short: 'SPRINT', long: 'SPRINT 28M',      kind: 'time', target: 5.0,
     pre: ['Sprint28m_pre', 'Sprint28m_minggu1', 'sprint_w1'],
     post: ['Sprint28m_post', 'Sprint28m_minggu12', 'sprint_w12'] },
-  { key: 'slide',  short: 'SLIDE',  long: 'DEFENSIVE SLIDE', kind: 'time',
+  { key: 'slide',  short: 'SLIDE',  long: 'DEFENSIVE SLIDE', kind: 'time', target: 11.0,
     pre: ['Slide_pre', 'Slide_minggu1', 'slide_w1'],
     post: ['Slide_post', 'Slide_minggu12', 'slide_w12'] },
 ];

@@ -1,5 +1,5 @@
 import { CLUB, TESTS, DEFAULT_STYLE, DEFAULT_VIEW, DATA_URL } from './config.js';
-import { growthScore, formatValue, formatDelta, formatSigned, isImprovement } from './growth.js';
+import { headline, formatValue, formatDelta, hasClosedResults, isImprovement } from './growth.js';
 import { groupPlayers, listPeriodIds, periodTitle, snapshotFor } from './players.js';
 import { parseCSV } from './csv.js';
 import { downloadAll, downloadCard, printCards } from './export.js';
@@ -25,14 +25,19 @@ const photoFallback = `
         fill="rgba(255,255,255,.5)" letter-spacing="1.5">FOTO BELUM ADA</text>
 </svg>`;
 
-function mountImage(slot, src, fallbackSVG) {
-  if (!src) { slot.innerHTML = fallbackSVG; return; }
-  const img = new Image();
-  img.alt = '';
-  img.crossOrigin = 'anonymous';
-  img.addEventListener('error', () => { slot.innerHTML = fallbackSVG; }, { once: true });
-  img.src = src;
-  slot.replaceChildren(img);
+function mountImage(slot, sources, fallbackSVG) {
+  const list = (Array.isArray(sources) ? sources : [sources]).filter(Boolean);
+  if (!list.length) { slot.innerHTML = fallbackSVG; return; }
+  const tryAt = (i) => {
+    if (i >= list.length) { slot.innerHTML = fallbackSVG; return; }
+    const img = new Image();
+    img.alt = '';
+    img.crossOrigin = 'anonymous';
+    img.addEventListener('error', () => tryAt(i + 1), { once: true });
+    img.src = list[i];
+    slot.replaceChildren(img);
+  };
+  tryAt(0);
 }
 
 /* ---------- template ---------- */
@@ -48,14 +53,16 @@ const longName = (n) => (n.length > 15 ? 'long' : '');
 function periodTrack(player, view) {
   if (player.periods.length < 2) return '';
   const parts = player.periods.map((snap) => {
-    const g = growthScore(snap);
+    const h = headline(snap);
     const on = view !== 'career' && view === snap.period;
-    return `<span class="${on ? 'on' : ''}">P${snap.period} ${formatSigned(g)}</span>`;
+    const label = h.value == null ? '—' : (h.kind === 'growth' ? `${h.value >= 0 ? '+' : '−'}${Math.abs(h.value)}` : String(h.value));
+    return `<span class="${on ? 'on' : ''}">P${snap.period} ${label}</span>`;
   });
   return `<div class="track">${parts.join('<i></i>')}</div>`;
 }
 
 function growthCaption(snap) {
+  if (!hasClosedResults(snap)) return 'SKOR AWAL PRE';
   if (snap.view === 'career' && snap.periodFrom !== snap.periodTo) {
     return 'JEJAK PRE P1 → POST TERAKHIR';
   }
@@ -63,15 +70,24 @@ function growthCaption(snap) {
 }
 
 function footNote(snap) {
+  if (!hasClosedResults(snap)) {
+    return 'SKOR AWAL = RATA-RATA PRE ÷ SKALA TES · BUKAN GROWTH';
+  }
   if (snap.view === 'career' && snap.periodFrom !== snap.periodTo) {
     return 'ANGKA POST TERAKHIR · DELTA DARI PRE PERIODE PERTAMA · BUKAN PERINGKAT';
   }
   return 'PRE → POST PERIODE INI · DIBANDING DIRI SENDIRI · BUKAN PERINGKAT';
 }
 
+function growthNumber(snap) {
+  const h = headline(snap);
+  if (h.value == null) return '—';
+  if (h.kind === 'start') return String(h.value);
+  return `<i>${h.value >= 0 ? '+' : '−'}</i>${Math.abs(h.value)}`;
+}
+
 function cardA(player, view) {
   const snap = snapshotFor(player, view);
-  const g = growthScore(snap);
   const node = el(`
     <article class="card card--a">
       <div class="facet facet--1"></div><div class="facet facet--2"></div><div class="facet facet--3"></div>
@@ -79,7 +95,7 @@ function cardA(player, view) {
       <div class="photo-slot photo-slot--a" data-slot="photo"></div>
       <div class="scrim"></div>
       <div class="growth">
-        <div class="growth__n"><i>${g >= 0 ? '+' : '−'}</i>${Math.abs(g)}</div>
+        <div class="growth__n">${growthNumber(snap)}</div>
         <div class="growth__l">${growthCaption(snap)}</div>
       </div>
       <div class="logo-slot logo-slot--a" data-slot="logo"></div>
@@ -100,7 +116,7 @@ function cardA(player, view) {
       </div>
     </article>`);
 
-  mountImage(node.querySelector('[data-slot="photo"]'), snap.photo, photoFallback);
+  mountImage(node.querySelector('[data-slot="photo"]'), snap.photoSources ?? snap.photo, photoFallback);
   mountImage(node.querySelector('[data-slot="logo"]'), CLUB.logo,
              logoFallback('rgba(210,195,255,.55)', '#c4b2ff'));
   return tagCard(node, snap);
@@ -108,14 +124,13 @@ function cardA(player, view) {
 
 function cardB(player, view) {
   const snap = snapshotFor(player, view);
-  const g = growthScore(snap);
   const node = el(`
     <article class="card card--b">
       <div class="band"></div>
       <div class="logo-slot logo-slot--b" data-slot="logo"></div>
       <div class="photo-slot photo-slot--b" data-slot="photo"></div>
       <div class="growth growth--b">
-        <div class="growth__n">${formatSigned(g)}</div>
+        <div class="growth__n">${growthNumber(snap)}</div>
         <div class="growth__l">${growthCaption(snap)}</div>
       </div>
       <div class="card__bottom card__bottom--b">
@@ -137,7 +152,7 @@ function cardB(player, view) {
       </div>
     </article>`);
 
-  mountImage(node.querySelector('[data-slot="photo"]'), snap.photo, photoFallback);
+  mountImage(node.querySelector('[data-slot="photo"]'), snap.photoSources ?? snap.photo, photoFallback);
   mountImage(node.querySelector('[data-slot="logo"]'), CLUB.logo,
              logoFallback('#FF4A0F', '#FF4A0F'));
   return tagCard(node, snap);
