@@ -1,0 +1,21 @@
+# Jangan hapus baris header (baris yang diawali Nama). Baris # diabaikan.
+# Satu baris = satu anak di SATU periode. Anak yang sama (ID sama) boleh punya banyak baris.
+# Tiap periode wajib ada pre-test dan post-test.
+#
+# Periode       angka urut 1, 2, 3, …
+# Label         nama periode di kartu  contoh T1/2026
+# *_pre         tes awal periode
+# *_post        tes akhir periode
+# Tes angka     FT, Layup kiri, Jump shot 4m, Chest pass — 0 sampai 10
+# Tes waktu     Sprint 28m, Slide — detik, titik desimal (5.6 bukan 5,6)
+# Foto / ID     sama seperti sebelumnya; ID menggabungkan jejak antar periode
+#
+Nama,Umur,Posisi,Skuad,ID,Foto,Periode,Label,Hadir,Tes,Cedera,FT_pre,FT_post,LayupKiri_pre,LayupKiri_post,JumpShot_pre,JumpShot_post,ChestPass_pre,ChestPass_post,Sprint28m_pre,Sprint28m_post,Slide_pre,Slide_post
+# --- contoh periode 1 ---
+Arya Wicaksana,15,Guard,U-16,0114,,1,T1/2026,22/24,9/9,0,4,7,3,8,3,5,7,9,5.6,5.2,12.9,11.8
+Dimas Pratama,14,Forward,U-16,0118,,1,T1/2026,24/24,9/9,0,6,8,5,7,4,7,8,9,5.3,5.1,12.2,11.5
+Raka Nugroho,16,Center,U-16,0121,,1,T1/2026,20/24,9/9,1,3,6,2,6,2,4,6,8,6.1,5.5,13.8,12.4
+# --- contoh periode 2 (ID sama = jejak anak itu) ---
+Arya Wicaksana,15,Guard,U-16,0114,,2,T2/2026,23/24,9/9,0,7,8,8,9,5,7,9,10,5.2,5.0,11.8,11.2
+Dimas Pratama,14,Forward,U-16,0118,,2,T2/2026,24/24,9/9,0,8,9,7,8,7,8,9,9,5.1,4.9,11.5,11.1
+Raka Nugroho,16,Center,U-16,0121,,2,T2/2026,21/24,9/9,0,6,7,6,7,4,6,8,9,5.5,5.3,12.4,11.9

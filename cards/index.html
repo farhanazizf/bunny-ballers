@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bunny Ballers — Player Cards</title>
+<link rel="stylesheet" href="css/cards.css">
+</head>
+<body>
+  <header class="toolbar">
+    <h1>Bunny Ballers — Player Cards</h1>
+    <div class="actions">
+      <button type="button" data-action="print">Cetak / PDF semua</button>
+      <button type="button" data-action="png-all">Unduh semua PNG</button>
+      <button type="button" data-action="toggle-style">Gaya: A</button>
+      <div class="views" data-role="views"></div>
+      <span data-role="count"></span>
+    </div>
+  </header>
+
+  <main class="grid" data-role="grid" aria-live="polite"></main>
+
+  <script type="module" src="js/render.js"></script>
+</body>
+</html>
